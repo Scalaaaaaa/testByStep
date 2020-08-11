@@ -9,7 +9,7 @@
     <result column="address" jdbcType="VARCHAR" property="address" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, `name`, `password`, age, address
+    id, name, password, age, address
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -22,7 +22,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.yyy.example.model.User" useGeneratedKeys="true">
-    insert into user (`name`, `password`, age, 
+    insert into user (name, password, age, 
       address)
     values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
       #{address,jdbcType=VARCHAR})
@@ -31,10 +31,10 @@
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null">
-        `name`,
+        name,
       </if>
       <if test="password != null">
-        `password`,
+        password,
       </if>
       <if test="age != null">
         age,
@@ -62,10 +62,10 @@
     update user
     <set>
       <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
-        `password` = #{password,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="age != null">
         age = #{age,jdbcType=INTEGER},
@@ -78,8 +78,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yyy.example.model.User">
     update user
-    set `name` = #{name,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
       address = #{address,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

@@ -17,10 +17,10 @@ public class DemoApplicationTests {
     public void contextLoads() {
         System.out.println("#####start");
         User user = new User();
-        user.setAddress("puxi");
-        user.setAge(31);
-        user.setName("全路径/*.xml");
-        user.setPassword("success");
+        user.setAddress("tttt");
+        user.setAge(21);
+        user.setName("rrrr");
+        user.setPassword("ererwer");
         //user.setId("addsd");
         userDao.insertSelective(user);
         System.out.println("#####end");
